@@ -27,6 +27,11 @@ app.post('/ajouter', (req, res) => {
     })
 })
 
+app.post('/modifier'), (res,res) => {
+
+}
+
+
 app.get('/detruire/:_id', (req, res) => {
 
     db.collection('adresse').findOneAndDelete( {_id: ObjectID(req.params._id)} ,(err, resultat) => {
