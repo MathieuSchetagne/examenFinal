@@ -4,11 +4,11 @@
             <% if (noligne==0) { %>
                 <tr>
                     <% noligne++ %>
-                    <td><a href="trier/_id/<%= elm._id %>">id</a></td>
-                    <td><a href="trier/nom/<%= elm.nom %>">nom</a></td>
-                    <td><a href="trier/prenom/<%= elm.prenom %>">prenom</a></td>
-                    <td><a href="trier/telephone/<%= elm.telephone %>">telephone</a></td>
-                    <td><a href="trier/courriel/<%= elm.courriel %>">courriel</a></td>
+                    <td><a href="/trier/_id/<%= ordre %>">id</a></td>
+                    <td><a href="/trier/nom/<%= ordre %>">nom</a></td>
+                    <td><a href="/trier/prenom/<%= ordre %>">prenom</a></td>
+                    <td><a href="/trier/telephone/<%= ordre %>">telephone</a></td>
+                    <td><a href="/trier/courriel/<%= ordre %>">courriel</a></td>
                 </tr>
             <% } %>
 
