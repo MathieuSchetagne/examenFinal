@@ -13,11 +13,11 @@ var db // variable qui contiendra le lien sur la BD
 app.set('view engine', 'ejs');
 
 app.get('/formulaire', (req, res) => {
-    res.sendFile(__dirname + '/public/html' + "01_html.htm")
+    res.sendFile(__dirname + '/public/html' + "/01_html.htm")
 })
 
 app.get('/accueil', (req, res) => {
-    res.sendFile(__dirname + '/public/html' + "02_html.htm")
+    res.sendFile(__dirname + '/public/html' + "/02_html.htm")
 })
 
 app.post('/ajouter', (req, res) => {
@@ -35,6 +35,18 @@ app.get('/detruire/:_id', (req, res) => {
 
         res.redirect('/');
     }) 
+})
+
+app.get('/trier/:clef/:ordre', (req, res) => {
+
+    let clef = req.params.clef
+    let ordre = (req.params.ordre == 'asc' ? 1 : -1)
+    let cursor = db.collection('adresse').find().sort(clef,ordre).toArray(function(err, resultat){
+
+        if (err) return console.log(err)
+        ordre = (req.params.ordre == 'asc' ? 'des' : 'asc');
+        res.render('gabarit.ejs', {adresses: resultat, clef, ordre});
+    })
 })
 
 app.get('/',  (req, res) => {
