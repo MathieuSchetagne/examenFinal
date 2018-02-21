@@ -20,6 +20,13 @@ app.get('/accueil', (req, res) => {
     res.sendFile(__dirname + '/public/html' + "02_html.htm")
 })
 
+app.post('/ajouter', (req, res) => {
+    db.collection('adresse').save(req.body, (err, result) => {
+    if (err) return console.log(err);
+    res.redirect('/');
+    })
+})
+
 app.get('/',  (req, res) => {
     
     var cursor = db.collection('adresse')
