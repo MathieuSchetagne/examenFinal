@@ -1,0 +1,29 @@
+{
+  "name": "veille-node5",
+  "version": "1.0.0",
+  "description": "Exercice 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MathieuSchetagne/veille-node5.git"
+  },
+  "keywords": [
+    "Express",
+    "ejs",
+    "mongodb"
+  ],
+  "author": "Mathieu Schetagne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MathieuSchetagne/veille-node5/issues"
+  },
+  "homepage": "https://github.com/MathieuSchetagne/veille-node5#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.2"
+  }
+}

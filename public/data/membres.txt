@@ -1,0 +1,21 @@
+{
+    "nom" : "Marcel",
+    "prenom" : "Guy",
+    "courriel" : "marcer123@hotomail.com",
+    "telephone" : "312312355",
+      "id" : "1"
+},
+{
+    "nom" : "Hiya",
+    "prenom" : "Bouzou",
+    "courriel" : "poison@souchi.com",
+    "telephone" : "1112121212",
+      "id" : "2"
+},
+{
+    "nom" : "We",
+    "prenom" : "Gang",
+    "courriel" : "welit@gang.gucci",
+    "telephone" : "9898989898",
+    "id" : "3"
+}
