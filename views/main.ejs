@@ -1,4 +1,11 @@
-<form action="/modifier" method="POST"></form>
+<form id="mon_formulaire" action="/modifier" method="POST">
+    <input name="_id" type="text" >
+    <input name="nom" type="text" >
+    <input name="prenom" type="text" >
+    <input name="telephone" type="text" >
+    <input name="courriel" type="text" >
+    <input type="submit">
+</form>
 
 <table class="tableau">
     <% let noligne = 0 %>
@@ -19,7 +26,7 @@
                         <td class="<%=info %>" contenteditable="true"><%= elm[info] %></td>
                     <% } %>
                     <td><a href="/detruire/<%= elm._id %>">Détruire </a></td>
-                    <td><a class="modifier" href="">Modifier </a></td>
+                    <td><a class="modifier">Modifier </a></td>
                 </tr>            
         <% } %>
 </table>
