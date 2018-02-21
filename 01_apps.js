@@ -27,6 +27,16 @@ app.post('/ajouter', (req, res) => {
     })
 })
 
+app.get('/detruire/:_id', (req, res) => {
+
+    db.collection('adresse').findOneAndDelete( {_id: ObjectID(req.params._id)} ,(err, resultat) => {
+
+        if (err) return console.log(err)
+
+        res.redirect('/');
+    }) 
+})
+
 app.get('/',  (req, res) => {
     
     var cursor = db.collection('adresse')
