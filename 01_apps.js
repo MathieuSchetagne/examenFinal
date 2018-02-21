@@ -6,8 +6,11 @@ const bodyParser= require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 const MongoClient = require('mongodb').MongoClient;
 app.use(express.static('public'));
+const ObjectID = require('mongodb').ObjectID;
 
 var db // variable qui contiendra le lien sur la BD
+
+app.set('view engine', 'ejs');
 
 
 app.get('/',  (req, res) => {
