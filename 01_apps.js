@@ -12,6 +12,13 @@ var db // variable qui contiendra le lien sur la BD
 
 app.set('view engine', 'ejs');
 
+app.get('/formulaire', (req, res) => {
+    res.sendFile(__dirname + '/public/html' + "01_html.htm")
+})
+
+app.get('/accueil', (req, res) => {
+    res.sendFile(__dirname + '/public/html' + "02_html.htm")
+})
 
 app.get('/',  (req, res) => {
     
