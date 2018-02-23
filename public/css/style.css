@@ -1,78 +1,86 @@
-@import url("https://fonts.googleapis.com/css?family=Latot");
-
-*{
-    font-family: 'Lato', sans-serif;
+@import "https://fonts.googleapis.com/css?family=Latot";
+* {
+  font-family: 'Lato', sans-serif;
 }
-
-header{
-    text-align: center;
-    background-color: #022646;
-    color: white;
-    width: 100%;
-    padding: 20px;
+header {
+  text-align: center;
+  background-color: #011627;
+  color: #E8F1F2;
+  width: 100%;
+  padding: 20px;
 }
-
-header a{
-    color: white;
-    text-decoration: none;
-    padding: 5px;
+header a {
+  color: #E8F1F2;
+  text-decoration: none;
+  padding: 5px;
+  transition: 1s;
 }
-
 header a i {
-    padding: 5px;
+  padding: 5px;
 }
-
-
-body{
-
-
-
-    background-color: beige;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+header a:hover {
+  color: #00A676;
 }
-
-
-table{
-    width: 60%;
-    margin: 30px;
-    background-color: white;
-  
+header section {
+  padding: 20px;
 }
-
-tbody{
-   text-align: center
-
+header section i {
+  color: #00A676;
 }
-li{
-    list-style-type: none;
+body {
+  background-color: #56E39F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
-td.id{
+table {
+  width: 60%;
+  margin: 30px;
+  background-color: #D6FFF6;
+}
+tbody {
+  text-align: center;
+}
+li {
+  list-style-type: none;
+}
+td.id {
+  display: none;
+}
+td {
+  padding: 10px;
+}
+._id {
+  display: none;
+}
+#mon_formulaire {
+  display: none;
+}
+footer {
+  text-align: center;
+}
+.icon {
+  color: #00A676;
+}
+.formulaire {
+  padding: 20px;
+}
+.enteteTab td a {
+  text-decoration: none;
+  color: #00A676;
+  font-weight: bold;
+}
+@media screen and (max-width: 1000px) and (min-width: 520px) {
+  table {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 600px) and (min-width: 0px) {
+  .courriel {
     display: none;
-}
-
-td{
-    padding: 10px;
-}
-
-.enteteTab{
-   
-}
-
-._id{
+  }
+  .telephone {
     display: none;
-}
-#mon_formulaire{
-    display: none;
-}
-
-footer{
-    text-align: center;
-}
-
-.icon{
-    color: black;
+  }
 }

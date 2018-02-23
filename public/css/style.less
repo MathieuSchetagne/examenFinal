@@ -1,0 +1,114 @@
+@vertFonce: #00A676;
+@vertPale: #56E39F;
+@blancBleu: #D6FFF6;
+@blanc: #E8F1F2;
+@bleuMarine: #011627;
+
+@font_family_1: 'Lato', sans-serif;
+
+
+@import "https://fonts.googleapis.com/css?family=Latot";
+* {
+	font-family: @font_family_1;
+}
+header {
+	text-align: center;
+	background-color: @bleuMarine;
+	color: @blanc;
+	width: 100%;
+	padding: 20px;
+	a {
+		color: @blanc;
+		text-decoration: none;
+        padding: 5px;
+        transition: 1s;
+		i {
+			padding: 5px;
+		}
+    }
+
+    a:hover{
+        color: @vertFonce;
+
+    }
+    section{
+        padding: 20px;
+
+        i{
+            color: @vertFonce;
+        }
+    }
+}
+body {
+	background-color: @vertPale;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+table {
+	width: 60%;
+	margin: 30px;
+	background-color: @blancBleu;
+}
+tbody {
+    text-align: center;
+    
+
+
+}
+li {
+	list-style-type: none;
+}
+td.id {
+	display: none;
+}
+td {
+	padding: 10px;
+}
+._id {
+	display: none;
+}
+#mon_formulaire {
+	display: none;
+}
+footer {
+	text-align: center;
+}
+.icon {
+    color: @vertFonce;
+}
+
+.formulaire{
+    padding: 20px;
+}
+
+.enteteTab td a{
+    text-decoration: none;
+    color: @vertFonce;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 1000px) and (min-width: 520px) {
+  
+    table {
+        width: 80%;
+    
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+  
+    .courriel{
+        display: none;
+    }
+    .telephone{
+        display: none;
+    }
+
+}
