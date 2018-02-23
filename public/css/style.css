@@ -57,6 +57,9 @@ td {
 #mon_formulaire {
   display: none;
 }
+#recherche_formulaire {
+  padding: 10px;
+}
 footer {
   text-align: center;
 }
