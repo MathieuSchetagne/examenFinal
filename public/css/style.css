@@ -1,8 +1,32 @@
-header{
-    text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Latot");
+
+*{
+    font-family: 'Lato', sans-serif;
 }
 
+header{
+    text-align: center;
+    background-color: #022646;
+    color: white;
+    width: 100%;
+    padding: 20px;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+header a i {
+    padding: 5px;
+}
+
+
 body{
+
+
+
     background-color: beige;
     display: flex;
     align-items: center;
@@ -13,6 +37,8 @@ body{
 
 table{
     width: 60%;
+    margin: 30px;
+    background-color: white;
   
 }
 
@@ -28,6 +54,14 @@ td.id{
     display: none;
 }
 
+td{
+    padding: 10px;
+}
+
+.enteteTab{
+   
+}
+
 ._id{
     display: none;
 }
@@ -37,4 +71,8 @@ td.id{
 
 footer{
     text-align: center;
+}
+
+.icon{
+    color: black;
 }
