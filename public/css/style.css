@@ -31,6 +31,12 @@ header section i {
 header section i:hover {
   color: #D6FFF6;
 }
+header section h1 {
+  transition: 0.5s;
+}
+header section h1:hover {
+  color: #00A676;
+}
 body {
   background-color: #56E39F;
   display: flex;
