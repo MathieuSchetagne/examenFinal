@@ -10,7 +10,7 @@ let faireListe = ()=>{
 
             personne.nom = tableau.nom[Math.floor(Math.random() * tableau.nom.length)];
 
-            personne.telephone = tableau.telephone[Math.floor(Math.random() * tableau.telephone.length)]+ " " + Math.floor(Math.random() * 1000) + "-" +Math.floor(Math.random() * 10000);
+            personne.telephone = tableau.telephone[Math.floor(Math.random() * tableau.telephone.length)]+ " " + Math.floor(Math.random() * 1010) + "-" +Math.floor(Math.random() * 10010);
 
             personne.courriel = personne.prenom + personne.nom + tableau.courriel[Math.floor(Math.random() * tableau.courriel.length)]
    
