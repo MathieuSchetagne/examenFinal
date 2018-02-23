@@ -1,5 +1,5 @@
 <form id="recherche_formulaire" action="/rechercher" method="POST">
-    <input name="nom" type="text" >
+    <input name="prenom" type="text" >
     <input type="submit">
 </form>
 
@@ -32,7 +32,7 @@
                     <% } %>
                     <td><a class="icon fa fa-trash" href="/detruire/<%= elm._id %>"></a></td>
                     <td><a class="icon modifier fa fa-save"></a></td>
-                    <td><a class="icon modifier fa fa-user"></a></td>
+                    <td><a class="icon modifier fa fa-user" href="/profil/<%= elm._id %>"></a></td>
                 </tr>            
         <% } %>
 </table>

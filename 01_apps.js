@@ -51,7 +51,22 @@ app.post('/ajouter', (req, res) => {
 })
 
 app.post('/rechercher', (req, res) => {
+
+    db.collection('adresse').find( {prenom: req.body.prenom} ).toArray((err, resultat) => {
+
+        if (err) return console.log(err)
+        res.render('gabarit.ejs', {adresses: resultat, ordre:'asc'})  
+    }) 
    
+})
+
+app.get('/profil/:id', (req, res) => {
+
+    db.collection('adresse').find( {_id: ObjectID(req.params.id)} ).toArray((err, resultat) => {
+
+        if (err) return console.log(err)
+        res.render('profil.ejs', {adresses: resultat[0], ordre:'asc'})  
+    }) 
 })
 
 
