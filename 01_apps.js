@@ -15,6 +15,8 @@ app.set('view engine', 'ejs');
 
 const peupler = require('./mes_modules/peupler');
 
+////////////////// PEUPLER /////////////////////
+
 app.get('/peupler', (req,res) => {
 
     let resultat = peupler(); 
@@ -26,14 +28,19 @@ app.get('/peupler', (req,res) => {
 })
 
 
+////////////////// FORMULAIRE /////////////////////
 
 app.get('/formulaire', (req, res) => {
     res.sendFile(__dirname + '/public/html' + "/01_html.htm")
 })
 
+////////////////// ACCUEIL /////////////////////
+
 app.get('/accueil', (req, res) => {
     res.sendFile(__dirname + '/public/html' + "/02_html.htm")
 })
+
+////////////////// VIDER /////////////////////
 
 app.get('/vider', (req, res) => {
     db.collection('adresse').drop((err,result) =>{
@@ -43,12 +50,16 @@ app.get('/vider', (req, res) => {
 
 })
 
+////////////////// AJOUTER /////////////////////
+
 app.post('/ajouter', (req, res) => {
     db.collection('adresse').save(req.body, (err, result) => {
     if (err) return console.log(err);
     res.redirect('/');
     })
 })
+
+////////////////// RECHERCHER /////////////////////
 
 app.post('/rechercher', (req, res) => {
 
@@ -60,6 +71,8 @@ app.post('/rechercher', (req, res) => {
    
 })
 
+////////////////// PROFIL /////////////////////
+
 app.get('/profil/:id', (req, res) => {
 
     db.collection('adresse').find( {_id: ObjectID(req.params.id)} ).toArray((err, resultat) => {
@@ -70,6 +83,7 @@ app.get('/profil/:id', (req, res) => {
 })
 
 
+////////////////// MODIFIER /////////////////////
 
 app.post('/modifier', (req,res) =>{
 
@@ -93,6 +107,8 @@ app.post('/modifier', (req,res) =>{
     }
 })
 
+////////////////// DÉTRUIRE /////////////////////
+
 app.get('/detruire/:_id', (req, res) => {
 
     db.collection('adresse').findOneAndDelete( {_id: ObjectID(req.params._id)} ,(err, resultat) => {
@@ -102,6 +118,8 @@ app.get('/detruire/:_id', (req, res) => {
         res.redirect('/');
     }) 
 })
+
+////////////////// TRIER /////////////////////
 
 app.get('/trier/:clef/:ordre', (req, res) => {
 
@@ -115,6 +133,8 @@ app.get('/trier/:clef/:ordre', (req, res) => {
     })
 })
 
+////////////////// ADRESSES /////////////////////
+
 app.get('/',  (req, res) => {
     
     var cursor = db.collection('adresse')
@@ -126,7 +146,7 @@ app.get('/',  (req, res) => {
     });
 })
 
-
+////////////////// CONNECTION /////////////////////
 
 MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) => {
  if (err) return console.log(err)

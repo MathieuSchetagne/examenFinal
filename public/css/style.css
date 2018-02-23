@@ -26,6 +26,10 @@ header section {
 }
 header section i {
   color: #00A676;
+  transition: 1s;
+}
+header section i:hover {
+  color: #D6FFF6;
 }
 body {
   background-color: #56E39F;
