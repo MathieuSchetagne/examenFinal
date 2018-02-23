@@ -50,6 +50,12 @@ app.post('/ajouter', (req, res) => {
     })
 })
 
+app.post('/rechercher', (req, res) => {
+   
+})
+
+
+
 app.post('/modifier', (req,res) =>{
 
         console.log(req.body);
