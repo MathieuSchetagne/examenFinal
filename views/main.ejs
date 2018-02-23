@@ -1,3 +1,8 @@
+<form id="recherche_formulaire" action="/rechercher" method="POST">
+    <input name="nom" type="text" >
+    <input type="submit">
+</form>
+
 <form id="mon_formulaire" action="/modifier" method="POST">
     <input name="_id" type="text" >
     <input name="nom" type="text" >
@@ -27,6 +32,7 @@
                     <% } %>
                     <td><a class="icon fa fa-trash" href="/detruire/<%= elm._id %>"></a></td>
                     <td><a class="icon modifier fa fa-save"></a></td>
+                    <td><a class="icon modifier fa fa-user"></a></td>
                 </tr>            
         <% } %>
 </table>
