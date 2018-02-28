@@ -30,6 +30,24 @@ app.set('view engine', 'ejs');
 
 const peupler = require('./mes_modules/peupler');
 
+////////////////// CHANGEMENT DE LANGUE /////////////////////
+
+app.get('/en', (req,res) => {
+
+    res.setLocale('en')
+    console.log(res.__('courriel'));
+
+    res.render('head.ejs');
+})
+
+
+app.get('/fr', (req,res) => {
+
+    res.setLocale('fr')
+    console.log(res.__('courriel'));
+
+    res.render('head.ejs');
+})
 ////////////////// PEUPLER /////////////////////
 
 app.get('/peupler', (req,res) => {
