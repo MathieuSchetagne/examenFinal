@@ -1,3 +1,12 @@
 {
-    "courriel" : "email"
+	"vider": "Empty",
+	"accueil": "Home",
+	"adresse": "Address",
+	"peupler": "Populate",
+	"formulaire": "Form",
+	"prenom": "Name",
+	"nom": "Last name",
+	"telephone": "Phone number",
+	"courriel": "Email",
+	"valider": "Validate"
 }

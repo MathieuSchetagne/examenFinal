@@ -1,3 +1,12 @@
 {
-    "courriel" : "Courriel"
+	"courriel": "Courriel",
+	"prenom": "Prenom",
+	"vider": "Vider",
+	"accueil": "Accueil",
+	"adresse": "Adresse",
+	"peupler": "Peupler",
+	"formulaire": "Formulaire",
+	"nom": "Nom",
+	"telephone": "Telephone",
+	"valider": "Valider"
 }

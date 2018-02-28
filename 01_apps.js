@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const fs = require('fs');
@@ -14,13 +15,17 @@ var util = require("util");
 ////////////////// i18n /////////////////////
 
 const i18n = require('i18n');
+const cookieParser = require('cookie-parser')
 
+app.use(cookieParser());
 i18n.configure({ 
     locales : ['fr', 'en'],
     cookie : 'langueChoisie', 
-    directory : __dirname + '/locales' })
+    directory : __dirname + '/locales' }
+)
 
     app.use(i18n.init);
+   
 
 //////////////////////////////////////
 
@@ -33,11 +38,16 @@ const peupler = require('./mes_modules/peupler');
 ////////////////// CHANGEMENT DE LANGUE /////////////////////
 
 
-app.get('/:local(en|fr)', (req,res) => {
+app.get('/:locale(en|fr)', (req,res) => {
 
-    console.log(req.params.local)
-    res.setLocale(req.params.local)
-    console.log(res.__('courriel'));
+    console.log("req.params.local + " + req.params.locale)
+
+    res.cookie('langueChoisie', req.params.locale);
+
+    res.setLocale(req.params.locale)
+   
+ 
+    console.log(res.__('prenom'));
 
     res.redirect('/');
 })
@@ -162,7 +172,10 @@ app.get('/trier/:clef/:ordre', (req, res) => {
 ////////////////// ADRESSES /////////////////////
 
 app.get('/',  (req, res) => {
-    
+
+    console.log(req.cookies.langueChoisie);
+    console.log(res.__('prenom'));
+
     var cursor = db.collection('adresse')
     .find().toArray(function(err, resultat){
     if (err) return console.log(err)
