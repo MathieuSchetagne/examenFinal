@@ -9,12 +9,20 @@ app.use(express.static('public'));
 const ObjectID = require('mongodb').ObjectID;
 var util = require("util");
 
+
+
+////////////////// i18n /////////////////////
+
 const i18n = require('i18n');
 
 i18n.configure({ 
     locales : ['fr', 'en'],
     cookie : 'langueChoisie', 
     directory : __dirname + '/locales' })
+
+    app.use(i18n.init);
+
+//////////////////////////////////////
 
 var db // variable qui contiendra le lien sur la BD
 
