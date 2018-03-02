@@ -30,7 +30,7 @@
                     <% for(info in elm) { %>
                         <td class="<%=info %>" contenteditable="true"><%= elm[info] %></td>
                     <% } %>
-                    <td><a class="icon fa fa-trash" href="/detruire/<%= elm._id %>"></a></td>
+                    <td><a class="icon fa fa-trash" href="/ajax_detruire/<%= elm._id %>"></a></td>
                     <td><a class="icon modifier fa fa-save"></a></td>
                     <td><a class="icon modifier fa fa-user" href="/profil/<%= elm._id %>"></a></td>
                 </tr>            

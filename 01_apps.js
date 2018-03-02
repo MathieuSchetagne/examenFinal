@@ -180,6 +180,18 @@ app.get('/detruire/:_id', (req, res) => {
     }) 
 })
 
+////////////////// DÉTRUIRE AJAX /////////////////////
+
+app.post('/ajax_detruire/:_id', (req, res) => {
+
+    db.collection('adresse').findOneAndDelete( {_id: ObjectID(req.params._id)} ,(err, resultat) => {
+
+        if (err) return console.log(err)
+
+        res.send('/');
+    }) 
+})
+
 ////////////////// TRIER /////////////////////
 
 app.get('/trier/:clef/:ordre', (req, res) => {
