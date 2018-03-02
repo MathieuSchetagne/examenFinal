@@ -5,6 +5,7 @@ const fs = require('fs');
 app.set('view engine', 'ejs'); 
 const bodyParser= require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 const MongoClient = require('mongodb').MongoClient;
 app.use(express.static('public'));
 const ObjectID = require('mongodb').ObjectID;
@@ -141,6 +142,30 @@ app.post('/modifier', (req,res) =>{
         res.redirect('/')
         })
     }
+})
+
+////////////////// MODIFIER AJAX /////////////////////
+
+app.post('/ajax_modifier', (req,res) =>{
+    
+    if (req.body['_id'] != undefined){ 
+        console.log('sauvegarde') 
+        var oModif = {
+        "_id": ObjectID(req.body['_id']), 
+        nom: req.body.nom,
+        prenom:req.body.prenom, 
+        telephone:req.body.telephone,
+        courriel:req.body.courriel
+        }
+
+    db.collection('adresse').save(oModif, (err, result) => {
+        if (err) return console.log(err)
+        console.log('sauvegarder dans la BD')
+        res.send(JSON.stringify(req.body))
+        })
+    }
+
+   
 })
 
 ////////////////// DÉTRUIRE /////////////////////
