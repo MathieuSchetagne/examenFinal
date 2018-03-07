@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const server = require('http').createServer(app);
+const io = require('./mes_modules/socket.io').listen(server);
 app.set('view engine', 'ejs'); 
 const bodyParser= require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -86,6 +88,16 @@ app.get('/vider', (req, res) => {
     })
 
 })
+
+////////////////// CHAT /////////////////////
+
+app.get('/chat', (req, res) => {
+  
+    res.render('clavarder.ejs', {message : ""})
+   
+
+})
+
 
 ////////////////// AJOUTER /////////////////////
 
@@ -239,7 +251,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) 
  if (err) return console.log(err)
  db = database.db('carnet_adresse');
 // lancement du serveur Express sur le port 8081
- app.listen(8081, () => {
+ server.listen(8081, () => {
  console.log('connexion à la BD et on écoute sur le port 8081')
  })
 })

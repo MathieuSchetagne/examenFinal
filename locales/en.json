@@ -8,5 +8,6 @@
 	"nom": "Last name",
 	"telephone": "Phone number",
 	"courriel": "Email",
-	"valider": "Validate"
+	"valider": "Validate",
+	"clavardage": "Chat"
 }

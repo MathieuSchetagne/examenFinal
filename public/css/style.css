@@ -84,6 +84,11 @@ footer {
   color: #00A676;
   font-weight: bold;
 }
+.profil {
+  background-color: #D6FFF6;
+  padding: 5px;
+  margin: 10px;
+}
 @media screen and (max-width: 1000px) and (min-width: 520px) {
   table {
     width: 80%;

@@ -6,15 +6,10 @@
         <%-  include entete %>
     <body>
 
-<div class="profil">
-        <% for (info in adresses) {%>
-            <h3><%= adresses[info] %></h3>
-        <% } %>
- 
-</div>
-
+        <%- include socket_body %>
 </body>
 
 <%-  include footer %>
-
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
 </html>
