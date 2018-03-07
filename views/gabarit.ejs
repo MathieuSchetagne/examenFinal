@@ -3,116 +3,199 @@
 
 <%-  include head %>
 
-<%-  include entete %>
+    <%-  include entete %>
 
-<body>
-    
-    
-    <%-  include main %>
-
-    <button id='testAJAX'>test AJAX</button>
+        <body>
 
 
-</body>
-<%-  include footer %>
+            <%-  include main %>
 
-<script type="text/javascript">
-
-    // dans notre fichier .ejs
-// Notre code JavaScript pour effectuer un transfert AJAX
+                <button class='testAjout'>test Ajout</button>
 
 
-function traiterRequest(e)
-{
-console.log("xhr.readyState = " + xhr.readyState)
-console.log("xhr.status = " + xhr.status)
-if(xhr.readyState == 4 && xhr.status == 200)
-{
-console.log('ajax fonctionne')
-let  maReponse = JSON.parse(xhr.responseText);
-console.log(xhr.responseText);
-console.log(maReponse._id)
-}
-}
+        </body>
+        <%-  include footer %>
 
-let elmBouton = document.getElementById('testAJAX')
-elmBouton.addEventListener('click', ()=>{
-console.log('ok')
-xhr = new XMLHttpRequest();
-xhr.open('POST', "/ajax_modifier", true);
-data = {
-"nom" : "AAAA",
-"prenom" : "BBBB",
-"telephone" : "CCCC",
-"_id" : "5a999079b8347c2098ace63a"
-}
-console.log(data)
-sData = JSON.stringify(data);
-xhr.setRequestHeader('Content-type', 'application/json');
-console.log("resquestheader")
-xhr.send(sData);
-xhr.addEventListener("readystatechange", traiterRequest, false);
-console.log("envent");
-})
-
-// Dans notre fichier .ejs
-// Pour traiter le résultat transmis par l'application serveur 
-
-function traiterRequest(e)
-{
-console.log("xhr.readyState = " + xhr.readyState)
-console.log("xhr.status = " + xhr.status)
-if(xhr.readyState == 4 && xhr.status == 200)
-{
-console.log('ajax fonctionne')
-let  maReponse = JSON.parse(xhr.responseText);
-console.log(xhr.responseText);
-console.log(maReponse._id)
-}
-}
+            <script type="text/javascript">
+                // dans notre fichier .ejs
+                // Notre code JavaScript pour effectuer un transfert AJAX
 
 
 
-    let boutons = document.querySelectorAll('.modifier');
-    
-    for(bouton of boutons){
-        bouton.addEventListener('click', function(){
-    
-    
-    let laLigne = this.parentNode.parentNode
-    let id = laLigne.children[0].innerHTML
-    let nom = laLigne.children[1].innerHTML
-    let prenom = laLigne.children[2].innerHTML
-    let telephone = laLigne.children[3].innerHTML
-    let courriel = laLigne.children[4].innerHTML
-  
+                // Dans notre fichier .ejs
+                // Pour traiter le résultat transmis par l'application serveur 
 
-    console.log('ok')
-    xhr = new XMLHttpRequest();
-    xhr.open('POST', "/ajax_modifier", true);
-    data = {
-    "nom" : nom,
-    "prenom" : prenom,
-    "telephone" : telephone,
-    "courriel" : courriel,
-    "_id" : id
-    }
-    console.log(data)
-    sData = JSON.stringify(data);
-    xhr.setRequestHeader('Content-type', 'application/json');
-    console.log("resquestheader")
-    xhr.send(sData);
-    xhr.addEventListener("readystatechange", traiterRequest, false);
-    console.log("envent");
-    
-  
-   
-    
-        })
-    }
-    
-    
-    
-    </script>
-    
+                function traiterRequest(e) {
+                    console.log("xhr.readyState = " + xhr.readyState)
+                    console.log("xhr.status = " + xhr.status)
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log('ajax fonctionne')
+                        let maReponse = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        console.log(maReponse._id)
+                    }
+                }
+
+
+                function supprimerElement(e) {
+                    console.log("xhr.readyState = " + xhr.readyState)
+                    console.log("xhr.status = " + xhr.status)
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log('ajax fonctionne')
+                        let maReponse = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        console.log(maReponse._id)
+
+
+                        e.target.parametre.parentNode.removeChild(e.target.parametre);
+                    }
+                }
+
+                function ajouterElement(e) {
+                    console.log("xhr.readyState = " + xhr.readyState)
+                    console.log("xhr.status = " + xhr.status)
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log('ajax fonctionne')
+                        let maReponse = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText);
+                        console.log(maReponse._id)
+
+                        
+                        var itm = document.getElementById("tableau");
+
+                        var row = itm.insertRow(itm.lenght);
+
+                        var id = row.insertCell(0);
+                        id.innerHTML = maReponse._id;
+                        id.style.display = 'none';
+
+                        var prenom = row.insertCell(1);
+                        prenom.innerHTML = maReponse.prenom;
+
+                        var nom = row.insertCell(2);
+                        nom.innerHTML = maReponse.nom;
+
+
+                        var telephone = row.insertCell(3);
+                        telephone.innerHTML = maReponse.telephone;
+
+                        var courriel = row.insertCell(4);
+                        courriel.innerHTML = maReponse.courriel;
+
+                        var supprimer = row.insertCell(5);
+                        supprimer.innerHTML = "<a class='icon supprimer fa fa-trash'></a>";
+
+                        var modifier = row.insertCell(6);
+                        modifier.innerHTML = "<a class='icon modifier fa fa-save'></a>";
+
+                        var profil = row.insertCell(7);
+                        profil.innerHTML = "<a class='icon fa fa-user' href='/profil/5a999f7a018db817a031d3f1'></a>"
+
+
+                        
+
+                    }
+                }
+
+
+
+                let boutonsM = document.querySelectorAll('.modifier');
+                let boutonsS = document.querySelectorAll('.supprimer');
+                let gabarit = document.querySelector('#gabarit');
+                let boutonA = document.querySelector('.testAjout');
+
+                boutonA.addEventListener('click', function(){
+
+                       var id =  gabarit.children[0].innerHTML;
+                       var prenom =  gabarit.children[1].innerHTML;
+                       var nom =  gabarit.children[2].innerHTML;
+                       var telephone =  gabarit.children[3].innerHTML;
+                       var courriel =  gabarit.children[4].innerHTML;
+                        xhr = new XMLHttpRequest();
+                        xhr.open('POST', "/ajax_ajouter", true);
+                        data = {
+                            "nom": nom,
+                            "prenom": prenom,
+                            "telephone": telephone,
+                            "courriel": courriel
+                    
+                        }
+                        console.log(data)
+                        sData = JSON.stringify(data);
+                        xhr.setRequestHeader('Content-type', 'application/json');
+                        console.log("resquestheader")
+                        xhr.send(sData);
+                        xhr.addEventListener("readystatechange", ajouterElement, false);
+                        console.log("event");
+
+
+                })
+
+
+                for (boutonS of boutonsS) {
+                    boutonS.addEventListener('click', function () {
+
+
+                        let laLigne = this.parentNode.parentNode
+                        let id = laLigne.children[0].innerHTML
+
+                        console.log('ok');
+                        xhr = new XMLHttpRequest();
+                        xhr.open('POST', "/ajax_detruire", true);
+                        data = {
+                            "_id": id
+                            
+                        }
+                        console.log(data)
+                        sData = JSON.stringify(data);
+                        xhr.setRequestHeader('Content-type', 'application/json');
+                        console.log("resquestheader")
+                        xhr.send(sData);
+                        xhr.parametre = laLigne;
+                        xhr.addEventListener("readystatechange", supprimerElement, false);
+                        console.log("envent");
+
+
+
+                    })
+
+                }
+
+                for (bouton of boutonsM) {
+                    bouton.addEventListener('click', function () {
+
+
+                        let laLigne = this.parentNode.parentNode
+                        let id = laLigne.children[0].innerHTML
+                        let nom = laLigne.children[1].innerHTML
+                        let prenom = laLigne.children[2].innerHTML
+                        let telephone = laLigne.children[3].innerHTML
+                        let courriel = laLigne.children[4].innerHTML
+
+
+                        console.log('ok')
+                        xhr = new XMLHttpRequest();
+                        xhr.open('POST', "/ajax_modifier", true);
+                        data = {
+                            "nom": nom,
+                            "prenom": prenom,
+                            "telephone": telephone,
+                            "courriel": courriel,
+                            "_id": id
+                        }
+                        console.log(data)
+                        sData = JSON.stringify(data);
+                        xhr.setRequestHeader('Content-type', 'application/json');
+                        console.log("resquestheader")
+                        xhr.send(sData);
+                        xhr.addEventListener("readystatechange", traiterRequest, false);
+                        console.log("envent");
+
+
+
+
+                    })
+                }
+            </script>
+
 </html>

@@ -12,7 +12,12 @@
     <input type="submit">
 </form>
 
-<table class="tableau">
+<table class="tableau" id="tableau">
+
+        
+                
+                
+            
     <% let noligne = 0 %>
         <% for(elm of adresses) { %>
             <% if (noligne==0) { %>
@@ -24,15 +29,35 @@
                     <td class="telephone"><a href="/trier/telephone/<%= ordre %>"><%= __('telephone') %></a></td>
                     <td class="courriel"><a href="/trier/courriel/<%= ordre %>"><%= __('courriel') %></a></td>
                 </tr>
+
+                <tr id="gabarit">
+                    
+                        <td class="_id" contenteditable="true"></td>
+                    
+                        <td class="prenom" contenteditable="true"></td>
+                    
+                        <td class="nom" contenteditable="true"></td>
+                    
+                        <td class="telephone" contenteditable="true"></td>
+                    
+                        <td class="courriel" contenteditable="true"></td>
+                    
+                    <td><a class="icon supprimer fa fa-trash"></a></td>
+                    <td><a class="icon modifier fa fa-save"></a></td>
+                    <td><a class="icon fa fa-user" href="/profil/5a999f7a018db817a031d3f1"></a></td>
+                </tr>
             <% } %>
 
+                    
+
+                
                 <tr>
                     <% for(info in elm) { %>
                         <td class="<%=info %>" contenteditable="true"><%= elm[info] %></td>
                     <% } %>
-                    <td><a class="icon fa fa-trash" href="/ajax_detruire/<%= elm._id %>"></a></td>
+                    <td><a class="icon supprimer fa fa-trash"></a></td>
                     <td><a class="icon modifier fa fa-save"></a></td>
-                    <td><a class="icon modifier fa fa-user" href="/profil/<%= elm._id %>"></a></td>
+                    <td><a class="icon fa fa-user" href="/profil/<%= elm._id %>"></a></td>
                 </tr>            
         <% } %>
 </table>
