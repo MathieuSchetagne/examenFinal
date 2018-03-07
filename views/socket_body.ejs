@@ -1,15 +1,19 @@
 <h2><%= message %></h2>
-<section id="enregistrement">
+<section id="enregistrement" style="text-align:center">
+    <h1>Se connecter</h1>
  <input type="text">
  <button onclick="enregistrement()">Enregistrement</button>
 </section>
 
-<section class="chat" style="">
-    <div id="list_user"><h1>Utilisateurs</h1></div>
-    <table id="message"></table>
+<section class="chat" id="chat" style="text-align:center">
+    <h1>Clavardage</h1>
+    <h1 id="utilisateur"></h1>
+    <div id="list_user"></div>
+    <div id="message"></div>
     <section id="message_a_transmette">
-        <input type="text" name="txtMessage"><button>Transmettre</button>
+        <input type="text" name="txtMessage"><button onclick="transmettre()">Transmettre</button>
     </section>
+    <button onclick="deconnecter()">Déconnectino</button>
 </section>
 
 
