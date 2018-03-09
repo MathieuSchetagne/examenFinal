@@ -9,8 +9,10 @@ module.exports.listen = function(server){
     console.log(socket.id);
 
     socket.on('ajouterUtilisateur', function(data){
-      console.log(data.user);
+      objUtilisateur[socket.id] = data.user;
+      console.log(objUtilisateur);
       io.emit('nouvelUtilisateur', data);
+  
     })
 
     socket.on('ajouterMessage', function(data){
@@ -22,8 +24,13 @@ module.exports.listen = function(server){
       console.log(data.id);
       let message = data.nom + " c'est déconnecté";
       data.message = message;
+      console.log(objUtilisateur[socket.id]);
+    
+     data.id = socket.id;
+ 
       io.emit('deconnection', data);
       socket.disconnect();
+      delete objUtilisateur[socket.id];
     })
     // .......
    })

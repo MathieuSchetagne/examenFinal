@@ -10,8 +10,10 @@ window.onload = () => {
         socket.on('nouvelUtilisateur', function (data) {
 
             console.log(data);
-            ajouter(data.user);
+            ajouter(data.user, data.id);
         })
+
+     
 
         socket.on('nouveauMessage', function (data) {
 
@@ -23,6 +25,9 @@ window.onload = () => {
 
             console.log(data);
             ajouterMessage(data.nom, data.message);
+            cacherUser(data.id);
+           
+            
             
             
         })
@@ -31,13 +36,16 @@ window.onload = () => {
 /* ---------------------------------------------------------- */
 function enregistrement() {
     var elmUser = document.querySelector('#enregistrement input')
-    console.log(elmUser.value)
+ 
+    socket.id = socket.id;
     socket.nom = elmUser.value;
     var user = document.getElementById("utilisateur");
     user.innerHTML = "Utilisateur actif : " + elmUser.value;
     var section = document.getElementById("enregistrement");
     section.style.display = "none";
+    user.setAttribute("class",socket.id);
     socket.emit('ajouterUtilisateur', {
+        id: socket.id,
         user: elmUser.value
     })
 }
@@ -45,7 +53,7 @@ function enregistrement() {
 
 function deconnecter() {
     socket.emit('deconnection',  {id:socket.id, nom:socket.nom})
-    cacher();
+  
     
 }
 
@@ -64,15 +72,19 @@ function transmettre() {
     })
 }
 
-function ajouter(personne){
+function ajouter(personne, id){
     var user = document.getElementById("utilisateur");
-    var listeUser = document.createElement("p");
+   var listeUser = document.createElement("p");
+
     listeUser.innerHTML = personne;
-   // user.innerHTML = "Utilisateur actif : " + personne;
+  // user.innerHTML = "Utilisateur actif : " + personne;
     var element = document.getElementById("list_user");
     var element2 = document.getElementById("chat");
-    element2.appendChild(user);  
-    element.appendChild(listeUser); 
+ // element2.appendChild(user);  
+  var nomUser =   element.appendChild(listeUser); 
+  nomUser.setAttribute("class", id);
+   
+
    
 }
 
@@ -83,9 +95,17 @@ function ajouterMessage(user, message){
     element.appendChild(messageText);  
 }
 
-function cacher(){
-    var user = document.getElementById("utilisateur");
-    user.style.display = "none";
+
+
+
+function cacherUser(id){
+    var pUser = document.getElementsByClassName(id);
+    console.log(pUser);
+    pUser[0].parentNode.removeChild(pUser[0]);
+   pUser[0].parentNode.removeChild(pUser[0]);
+    
+    
+       
 }
 
 
