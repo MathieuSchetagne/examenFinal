@@ -18,7 +18,7 @@ module.exports.listen = function(server){
     socket.on('ajouterMessage', function(data, couleur){
       console.log(data.message);
       socket.broadcast.emit('nouveauMessage', data, '#FF0000')
-      socket.emit('nouveauMessage', data, "#000080");
+      socket.emit('nouveauMessage', data, "#00A676");
     })
 
     

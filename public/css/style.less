@@ -110,6 +110,60 @@ footer {
 
 #blocChat{
     background-color: @blancBleu;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+}
+#utilisateurs{
+    width: 49%;
+    background-color: @blancBleu;
+    border-left: 2px solid @vertFonce;
+    text-align: center;
+    height: 200px;
+    
+}
+#list_user{
+    overflow-y: scroll;
+    height: 100px;
+}
+
+#utiActif{
+    background-color: @blancBleu;
+    width: 49%;
+    height: 200px;
+}
+#chat{
+ background-color: @vertFonce;
+ color: @blanc;
+ width: 100%;
+ height: 500px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+
+#message{
+    background-color: @blanc;
+    width: 90%;
+    height: 90%;
+    overflow-y: scroll;
+   }
+
+#message_a_transmette{
+    width: 90%;
+    padding: 20px;
+    
+    input{
+        width: 80%;
+        height: 50px;
+    }
+    button{
+        height: 56px;
+    }
 }
 
 @media screen and (max-width: 1000px) and (min-width: 520px) {
@@ -131,6 +185,22 @@ footer {
     }
     .telephone{
         display: none;
+    }
+    #blocChat{
+        flex-direction: column;
+    }
+
+    #utilisateurs{
+        width: 100%;
+        height: 200px;
+        text-align: center;
+        border: 0px solid transparent;
+    }
+    
+    #utiActif{
+        width: 100%;
+        height: 200px;
+        text-align: center;
     }
 
 }

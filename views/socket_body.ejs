@@ -1,20 +1,29 @@
 <section id="blocChat">
-<section id="enregistrement" style="text-align:center">
+<section id="utiActif" style="text-align:center">
+ <section id="enregistrement" style="text-align:center">
     <h1>Se connecter</h1>
  <input type="text">
  <button onclick="enregistrement()">Enregistrement</button>
 </section>
+ <h1 id="utilisateur"></h1>
+ <button onclick="deconnecter()">Déconnectino</button>
+</section>
+
+<section id="utilisateurs">
+        <h1>Utilisateurs actifs</h1>
+    
+    <div id="list_user">
+       
+    </div>
+</section>
 
 <section class="chat" id="chat" style="text-align:center">
-    <h1 id="utilisateur"></h1>
-    <div id="list_user">
-        <h1>Utilisateurs actifs</h1>
-    </div>
-    <div id="message"> <h1>Clavardage</h1></div>
+     <h1>Clavardage</h1>
+    <div id="message"> </div>
     <section id="message_a_transmette">
         <input type="text" name="txtMessage"><button onclick="transmettre()">Transmettre</button>
     </section>
-    <button onclick="deconnecter()">Déconnectino</button>
+   
 </section>
 </section>
 

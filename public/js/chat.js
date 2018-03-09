@@ -106,7 +106,8 @@ function cacherUser(id){
     console.log(pUser);
     pUser[0].parentNode.removeChild(pUser[0]);
    pUser[0].parentNode.removeChild(pUser[0]);
-    
+    var login = document.getElementById("utiActif");
+    login.style.display = "none";
     
        
 }
