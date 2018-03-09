@@ -89,6 +89,9 @@ footer {
   padding: 5px;
   margin: 10px;
 }
+#blocChat {
+  background-color: #D6FFF6;
+}
 @media screen and (max-width: 1000px) and (min-width: 520px) {
   table {
     width: 80%;

@@ -15,10 +15,13 @@ module.exports.listen = function(server){
   
     })
 
-    socket.on('ajouterMessage', function(data){
+    socket.on('ajouterMessage', function(data, couleur){
       console.log(data.message);
-      io.emit('nouveauMessage', data);
+      socket.broadcast.emit('nouveauMessage', data, '#FF0000')
+      socket.emit('nouveauMessage', data, "#000080");
     })
+
+    
 
     socket.on('deconnection', function(data){
       console.log(data.id);
@@ -26,7 +29,7 @@ module.exports.listen = function(server){
       data.message = message;
       console.log(objUtilisateur[socket.id]);
     
-     data.id = socket.id;
+      data.id = socket.id;
  
       io.emit('deconnection', data);
       socket.disconnect();

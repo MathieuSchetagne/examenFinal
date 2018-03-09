@@ -15,11 +15,13 @@ window.onload = () => {
 
      
 
-        socket.on('nouveauMessage', function (data) {
+        socket.on('nouveauMessage', function (data, couleur) {
 
             console.log(data);
-            ajouterMessage(data.user,data.message);
+            ajouterMessage(data.user,data.message,couleur);
         })
+
+         
 
         socket.on('deconnection', function (data) {
 
@@ -74,8 +76,7 @@ function transmettre() {
 
 function ajouter(personne, id){
     var user = document.getElementById("utilisateur");
-   var listeUser = document.createElement("p");
-
+    var listeUser = document.createElement("p");
     listeUser.innerHTML = personne;
   // user.innerHTML = "Utilisateur actif : " + personne;
     var element = document.getElementById("list_user");
@@ -88,12 +89,14 @@ function ajouter(personne, id){
    
 }
 
-function ajouterMessage(user, message){
+function ajouterMessage(user, message, couleur){
     var messageText = document.createElement("p");
     messageText.innerHTML = user + " - " + message;
     var element = document.getElementById("message");
     element.appendChild(messageText);  
+    messageText.style.color = couleur;
 }
+
 
 
 
