@@ -9,5 +9,10 @@
 	"nom": "Nom",
 	"telephone": "Telephone",
 	"valider": "Valider",
-	"clavardage": "Clavardage"
+	"clavardage": "Clavardage",
+	"connection": "Connection",
+	"deco": "Deconnection",
+	"utilisateurs": "Utilisateurs actifs",
+	"chat": "Clavardage",
+	"transmettre": "Envoyer"
 }

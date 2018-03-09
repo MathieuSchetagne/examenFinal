@@ -49,10 +49,9 @@ app.get('/:locale(en|fr)', (req,res) => {
 
     res.setLocale(req.params.locale)
    
- 
     console.log(res.__('prenom'));
 
-    res.redirect('/');
+    res.redirect(req.headers.referer);
 })
 ////////////////// PEUPLER /////////////////////
 

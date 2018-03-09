@@ -13,25 +13,18 @@ window.onload = () => {
             ajouter(data.user, data.id);
         })
 
-     
-
         socket.on('nouveauMessage', function (data, couleur) {
 
             console.log(data);
             ajouterMessage(data.user,data.message,couleur);
         })
-
-         
-
+        
         socket.on('deconnection', function (data) {
 
             console.log(data);
             ajouterMessage(data.nom, data.message);
             cacherUser(data.id);
-           
-            
-            
-            
+         
         })
     });
 }
@@ -56,15 +49,12 @@ function enregistrement() {
 function deconnecter() {
     socket.emit('deconnection',  {id:socket.id, nom:socket.nom})
   
-    
 }
 
 
 function transmettre() {
     var elmUser = document.querySelector('#enregistrement input')
     var message = document.querySelector('#message_a_transmette input');
-
-   
 
     console.log(message.value)
 
@@ -78,15 +68,9 @@ function ajouter(personne, id){
     var user = document.getElementById("utilisateur");
     var listeUser = document.createElement("p");
     listeUser.innerHTML = personne;
-  // user.innerHTML = "Utilisateur actif : " + personne;
     var element = document.getElementById("list_user");
-    var element2 = document.getElementById("chat");
- // element2.appendChild(user);  
-  var nomUser =   element.appendChild(listeUser); 
-  nomUser.setAttribute("class", id);
-   
-
-   
+    var nomUser =   element.appendChild(listeUser); 
+    nomUser.setAttribute("class", id);
 }
 
 function ajouterMessage(user, message, couleur){
@@ -103,13 +87,10 @@ function ajouterMessage(user, message, couleur){
 
 function cacherUser(id){
     var pUser = document.getElementsByClassName(id);
-    console.log(pUser);
     pUser[0].parentNode.removeChild(pUser[0]);
-   pUser[0].parentNode.removeChild(pUser[0]);
+    pUser[0].parentNode.removeChild(pUser[0]);
     var login = document.getElementById("utiActif");
-    login.style.display = "none";
-    
-       
+    login.style.display = "none";  
 }
 
 

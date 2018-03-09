@@ -9,5 +9,10 @@
 	"telephone": "Phone number",
 	"courriel": "Email",
 	"valider": "Validate",
-	"clavardage": "Chat"
+	"clavardage": "Chat",
+	"connection": "Connection",
+	"deco": "Deconnection",
+	"utilisateurs": "Active users",
+	"chat": "Chat",
+	"transmettre": "Send"
 }
